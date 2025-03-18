@@ -44,6 +44,10 @@ button {
   color: black;
 }
 
+#downloadButton:hover {
+  background-color: #e0a800;
+}
+
 /* Textarea styling */
 #resultArea {
   width: 100%;
