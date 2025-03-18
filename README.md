@@ -9,6 +9,7 @@ Document Scraper is a Chrome extension that allows users to extract text from an
 - Scrape all visible text from the current webpage
 - Display extracted text in a popup
 - Copy the extracted text to the clipboard with one click
+- **NEW:** Download the extracted text as a `.txt` file
 
 ## Installation
 
@@ -24,6 +25,7 @@ Document Scraper is a Chrome extension that allows users to extract text from an
 2. Click the **Scrape Text** button to extract text from the current webpage.
 3. The scraped text will appear in the text area.
 4. Click the **Copy Text** button to copy the extracted text to the clipboard.
+5. **NEW:** Click the **Download as .txt** button to save the text as a file.
 
 ## Files Overview
 

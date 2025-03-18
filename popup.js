@@ -1,6 +1,7 @@
 const scrapeButton = document.getElementById("scrapeButton");
 const copyButton = document.getElementById("copyButton");
 const resultArea = document.getElementById("resultArea");
+const downloadButton = document.getElementById("downloadButton");
 
 scrapeButton.addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -42,5 +43,20 @@ copyButton.addEventListener("click", () => {
       copyButton.textContent = "Copied!";
       setTimeout(() => (copyButton.textContent = "Copy Text"), 2000);
     });
+  }
+});
+
+// Download text as a file
+downloadButton.addEventListener("click", () => {
+  if (resultArea.value) {
+    const blob = new Blob([resultArea.value], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "scraped_text.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 });

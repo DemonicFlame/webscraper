@@ -38,6 +38,12 @@ button {
   background-color: #1e7e34;
 }
 
+/* Download button */
+#downloadButton {
+  background-color: #ffc107;
+  color: black;
+}
+
 /* Textarea styling */
 #resultArea {
   width: 100%;
