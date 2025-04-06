@@ -1,9 +1,15 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === "scrape") {
-    // Scrape entire text from the body element
-    const text = document.body.innerText
-      ? document.body.innerText
-      : "No text found.";
+  try {
+    let text = "";
+
+    if (request.action === "scrapeSelection") {
+      text = window.getSelection().toString() || "No text found.";
+    } else if (request.action === "scrape") {
+      text = document.body.innerText || "No text found.";
+    }
     sendResponse({ text });
+  } catch (error) {
+    console.error("Scraping error:", error);
+    sendResponse({ text: "Error occurred while scraping." });
   }
 });

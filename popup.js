@@ -5,8 +5,7 @@ const downloadButton = document.getElementById("downloadButton");
 
 scrapeButton.addEventListener("click", () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    if (tabs.length === 0) return; // No tabs found
-
+    if (tabs.length === 0) return;
     chrome.scripting.executeScript(
       { target: { tabId: tabs[0].id }, files: ["content.js"] },
       () => {
@@ -18,6 +17,7 @@ scrapeButton.addEventListener("click", () => {
           resultArea.value = "Failed to load content script.";
           return;
         }
+
         // Send message to content.js only after ensuring it's injected
         chrome.tabs.sendMessage(
           tabs[0].id,
@@ -59,4 +59,10 @@ downloadButton.addEventListener("click", () => {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
+});
+
+// Load scraped text when popup opens
+chrome.storage.local.get("scrapedText", (data) => {
+  resultArea.value = data.scrapedText || "";
+  chrome.storage.local.clear();
 });

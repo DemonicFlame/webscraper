@@ -1,15 +1,15 @@
-# Document Scraper - Chrome Extension
+# WebScraper
 
 ## Overview
 
-Document Scraper is a Chrome extension that allows users to extract text from any webpage with a single click. The extracted text can then be copied to the clipboard for further use.
+WebScraper is a Chrome extension that allows users to extract text from any webpage with a single click. The extracted text can then be copied to the clipboard or downloaded as txt file.
 
 ## Features
 
-- Scrape all visible text from the current webpage
-- Display extracted text in a popup
-- Copy the extracted text to the clipboard with one click
-- **NEW:** Download the extracted text as a `.txt` file
+- **One-click scraping** of all visible text
+- **Copy to clipboard** functionality
+- **Download as .txt file** option
+- **Right-click context menu** for selected text scraping
 
 ## Installation
 
@@ -17,31 +17,34 @@ Document Scraper is a Chrome extension that allows users to extract text from an
 2. Open **Google Chrome** and go to `chrome://extensions/`.
 3. Enable **Developer mode** (toggle switch in the top-right corner).
 4. Click **Load unpacked** and select the folder containing the extension files.
-5. The extension will now be added to Chrome.
+5. **Pin the extension** to your toolbar for easy access
 
 ## How to Use
 
-1. Click on the **Document Scraper** extension icon in the Chrome toolbar.
-2. Click the **Scrape Text** button to extract text from the current webpage.
-3. The scraped text will appear in the text area.
-4. Click the **Copy Text** button to copy the extracted text to the clipboard.
-5. **NEW:** Click the **Download as .txt** button to save the text as a file.
+### Basic Usage:
 
-## Files Overview
+1. Click the extension icon in your toolbar
+2. Click **Scrape Text** to extract all page text
+3. Use either:
 
-- `manifest.json` - Defines extension metadata and permissions.
-- `popup.html` - The UI for the extension popup.
-- `popup.css` - Styles for the popup UI.
-- `popup.js` - Handles user interactions and messaging with the content script.
-- `content.js` - Extracts text from the current webpage.
+- **Copy Text** - Copies to clipboard (confirmation appears for 2 seconds)
+- **Download as .txt** - Saves as text file
+
+### Context Menu:
+
+1. Select text on any webpage
+2. Right-click and choose **Scrape selected text**
+3. Click the extension icon to view captured text
 
 ## Permissions
 
-The extension requires the following permissions:
-
-- `activeTab` - Allows interaction with the currently open tab.
-- `scripting` - Injects JavaScript to extract text.
-- `clipboardWrite` - Allows copying extracted text to the clipboard.
+| Permission       | Purpose                    |
+| ---------------- | -------------------------- |
+| `activeTab`      | Access current tab content |
+| `scripting`      | Inject content scripts     |
+| `clipboardWrite` | Enable copy functionality  |
+| `contextMenus`   | Add right-click options    |
+| `storage`        | Temporary data storage     |
 
 ## Known Issues
 

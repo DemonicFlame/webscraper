@@ -1,9 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "Document Scraper",
-  "version": "1.0",
+  "name": "Web Scraper",
+  "version": "1.1",
   "description": "Scrapes the text content of the current webpage.",
-  "permissions": ["activeTab", "scripting", "clipboardWrite"],
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "scripting",
+    "clipboardWrite",
+    "contextMenus",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
